@@ -1,4 +1,4 @@
-// Text animation
+// Text animation Ref: https://github.com/kubowania/typewriter
 const textDisplay = document.getElementById("text")
 const phrases = ["ARE YOU A TYPE MASTER?", "LET'S FIND OUT!"]
 
@@ -40,6 +40,7 @@ function loop() {
             }
         }
     }
+    // Random typing time. Ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
     const speedUp = Math.random() * (80 -50) + 50
     const normalSpeed = Math.random() * (300 -200) + 200
     const time = isEnd ? 2000 : isDeleting ? speedUp : normalSpeed

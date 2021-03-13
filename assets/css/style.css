@@ -1,10 +1,6 @@
 header {
   padding: 156px 0 100px;
-}
-
-#text {
-    z-index: 1;
-
+  height: 90px;
 }
 
 section {
