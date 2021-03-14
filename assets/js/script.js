@@ -40,7 +40,7 @@ function loop() {
             }
         }
     }
-    // Random typing time. Ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+    // Random typing time (Math.random()) Ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
     const speedUp = Math.random() * (80 -50) + 50
     const normalSpeed = Math.random() * (300 -200) + 200
     const time = isEnd ? 2000 : isDeleting ? speedUp : normalSpeed
@@ -48,6 +48,63 @@ function loop() {
 }
 
 loop()
+
+// Typing Game 1
+
+const randomQuotesApi = "https://api.quotable.io/random"
+const quoteDisplayElement = document.getElementById("quoteDisplay")
+const quoteInputElement = document.getElementById("quoteInput")
+// Insert timer here?
+
+// Compare each character typed to the quote displayed
+quoteInputElement.addEventListener("input", () => {
+    const arrayQuote = quoteDisplayElement.querySelectorAll("span")
+    const arrayValue = quoteInputElement.value.split("")
+
+    let correct = true
+
+    arrayQuote.forEach((characterSpan, index) => {
+        const character = arrayValue[index]
+        if (character == null){
+            characterSpan.classList.remove("correct")
+            characterSpan.classList.remove("incorrect")
+            correct = false
+        } else if (character === characterSpan.innerText) {
+            characterSpan.classList.add("correct")
+            characterSpan.classList.remove("incorrect")
+        } else {
+            characterSpan.classList.remove("correct")
+            characterSpan.classList.add("incorrect")
+            correct = false
+        }
+    })
+
+    if (correct) getNextQuote()
+})
+
+function getRandomQuote() {
+    return fetch(randomQuotesApi)
+    .then(response => response.json())
+    .then(data => data.content)
+}
+
+// Create a loop in order to make each letter green or red
+async function getNextQuote() {
+    const quote = await getRandomQuote()
+    quoteDisplayElement.innerHTML = ""
+    quote.split("").forEach(character => {
+        const characterSpan = document.createElement("span")
+        
+        characterSpan.innerText = character
+        quoteDisplayElement.appendChild(characterSpan)
+    })
+    quoteInputElement.value = null
+}
+
+getNextQuote()
+
+
+// Typing Game 2
 
 window.addEventListener("load",init);
 
@@ -63,32 +120,10 @@ const scoreDisplay = document.querySelector("#score");
 const timeDisplay = document.querySelector("#time");
 const message = document.querySelector("#message");
 
-const words = [
-    "legendary",
-    "celebrate",
-    "engineer",
-    "exclusive",
-    "prominently",
-    "display",
-    "performance",
-    "movements",
-    "straight",
-    "through",
-    "peripherals",
-    "microphone",
-    "country",
-    "everything",
-    "master",
-    "laughter"
-
-];
 
 // Initialize Game
 function init() {
-    //Load words from array
-    showWord(words);
-    // Start matching on word input
-    wordInput.addEventListener("input", startMatch);
+    
     // Call countdown
     setInterval(countdown, 1000);
     // Check game status
@@ -99,32 +134,13 @@ function init() {
 function startMatch() {
     if (matchWords()) {
         isPlaying = true;
-        time = 6;
+        time = 20;
         showWord(words);
         wordInput.value = "";
         score++;
         }
         scoreDisplay.innerHTML = score;
     }
-
-//Match currentWord to wordInput
-function matchWords(){
-if(wordInput.value === currentWord.innerHTML) {
-            message.innerHTML = "Correct!";
-            return true;
-        } else {
-            message.innerHTML = "";
-            return false;
-    }
-}
-
-// Pick and show random words
-function showWord(words) {
-    // Generate randon array index
-    const randIndex = Math.floor(Math.random() * words.length);
-    // Output random word
-    currentWord.innerHTML = words[randIndex];
-}
 
 // Countdown timer
 function countdown() {
