@@ -109,7 +109,7 @@ getNextQuote()
 window.addEventListener("load",init);
 
 // Globals
-let time = 5;
+let time = 10;
 let score = 0;
 let isPlaying;
 
@@ -134,7 +134,7 @@ function init() {
 function startMatch() {
     if (matchWords()) {
         isPlaying = true;
-        time = 20;
+        time = 10;
         showWord(words);
         wordInput.value = "";
         score++;
