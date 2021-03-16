@@ -49,16 +49,12 @@ function loop() {
 
 loop();
 
-// Typing Game 1
+// Typing Game Ref: https://github.com/bradtraversy/wordbeater & https://github.com/WebDevSimplified/JS-Speed-Typing-Game
 window.addEventListener('load', init);
 
 const randomQuotesApi = "https://api.quotable.io/random";
 const quoteDisplayElement = document.getElementById("quoteDisplay");
 const quoteInputElement = document.getElementById("quoteInput");
-// Insert timer here?
-// Typing Game 2 Ref: https://github.com/bradtraversy/wordbeater
-
-//DOM
 const scoreDisplay = document.querySelector("#score");
 const timeDisplay = document.querySelector("#time");
 const message = document.querySelector("#message");
@@ -70,8 +66,10 @@ let isPlaying;
 
 // Initialize Game
 function init() {
+    // Show quote
+    show(randomQuotesApi);
     // Start matching on word input
-    quoteInputElement.addEventListener('input', startMatch);
+    quoteInputElement.addEventListener('keydown', startMatch);
     // Call countdown
     setInterval(countdown, 1000);
     // Check game status
@@ -82,13 +80,30 @@ function init() {
 function startMatch() {
     if (matchWords()) {
         isPlaying = true;
-        time = 10;
-        showWord(words);
+        time = 21;
+        show(randomQuotesApi);
         quoteInputElement.value = "";
-        score++;
+        
         }
-        scoreDisplay.innerHTML = score;
     }
+
+function matchWords() {
+    if (quoteInputElement.value === quoteDisplayElement.innerHTML) {
+        score++;
+        return true;
+    } else {
+        score--;
+        return false;
+    }
+}
+
+// Pick & show random word
+function show(randomQuotesApi) {
+  // Generate random array index
+  const randIndex = Math.floor(Math.random() * randomQuotesApi.length);
+  // Output random word
+  quoteDisplay.innerHTML = randomQuotesApi[randIndex];
+}
 
 // Countdown timer
 function countdown() {
@@ -108,7 +123,7 @@ function countdown() {
 function checkStatus() {
     if(!isPlaying && time === 0){
         message.innerHTML = "Game Over!";
-        score = 0;
+        score = -1;
     }
 }
 
