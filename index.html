@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="assets/css/style.css">
-        <script src="assets/js/script.js" defer></script>
         <script src="https://kit.fontawesome.com/911c3ddbaa.js" crossorigin="anonymous"></script>
         <title>Speed Typing</title>
     <!-- Bootstrap CSS -->
@@ -12,22 +11,13 @@
     </head>
     <body>
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <div class="container">
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="https://github.com/ClaudiaLie/SpeedTyping" target="_blank"><i class="fab fa-github fa-3x"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#play"><i class="far fa-keyboard fa-3x"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <nav class="navbar navbar-expand-lg bar-dark bg-dark fixed-top">
+            <p class="text-center">
+                <a class="link active" href="https://github.com/ClaudiaLie/SpeedTyping" target="_blank"><i class="fab fa-github fa-3x" style="color:grey"></i></a>
+                <a class="link" href="https://claudialie.github.io/SpeedTyping/"><i class="far fa-keyboard fa-3x" style="color:grey"></i></a>  
+            </p>
         </nav>
         <!--/Navigation-->
-
         <header class="bg-dark text-white">
             <div class="container text-center">
                 <h1 id="text"></h1>
@@ -50,7 +40,6 @@
                             <h2 class="display-2 mb-5" id="quoteDisplay">hello</h2>
                             <hr>
                             <input type="text" class="form-control form-control-lg" placeholder="Start typing..." id="quoteInput" autofocus>
-                            
                             <!-- Time & Score Columns -->
                             <div class="row mt-5">
                                 <div class="card card-body bg-secondary text-white">
@@ -71,14 +60,11 @@
                 </div>
             </div>
         </section>
-       
         <!-- Footer -->
         <footer class="py-5 bg-dark">
-            <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
-            </div>
         </footer>
-
+        <!-- My JavaScript file -->
+        <script src="assets/js/script.js" defer></script>
         <!-- Bootstrap bundle JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     </body>

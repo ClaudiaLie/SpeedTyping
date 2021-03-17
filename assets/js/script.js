@@ -49,8 +49,8 @@ function loop() {
 
 loop();
 
-// Typing Game Ref: https://github.com/bradtraversy/wordbeater & https://github.com/WebDevSimplified/JS-Speed-Typing-Game
-window.addEventListener('load', init);
+// Game structure Ref: https://github.com/bradtraversy/wordbeater 
+window.addEventListener("load", init);
 
 const randomQuotesApi = "https://api.quotable.io/random";
 const quoteDisplayElement = document.getElementById("quoteDisplay");
@@ -59,118 +59,70 @@ const scoreDisplay = document.querySelector("#score");
 const timeDisplay = document.querySelector("#time");
 const message = document.querySelector("#message");
 
-// Globals
 let time = 20;
 let score = 0;
 let isPlaying;
 
 // Initialize Game
 function init() {
-    // Show quote
-    show(randomQuotesApi);
-    // Start matching on word input
-    quoteInputElement.addEventListener('keydown', startMatch);
-    // Call countdown
+    // Load quote
+    randomQuotes(randomQuotesApi);
+    // Start Match at keydown
+    quoteInputElement.addEventListener("keydown", startMatch);{
+        event.preventDefault();
+    };
+    // Call countdown every second
     setInterval(countdown, 1000);
-    // Check game status
-    setInterval(checkStatus, 50);
+    // Focus on Input box
+    quoteInputElement.focus();
+
 } 
 
 // Start match
 function startMatch() {
-    if (matchWords()) {
+    if (matchQuote()) {
         isPlaying = true;
         time = 21;
-        show(randomQuotesApi);
+        randomQuotes(randomQuotesApi);
         quoteInputElement.value = "";
-        
+        score++;
         }
+        scoreDisplay.innerHTML = score;
     }
 
-function matchWords() {
+function matchQuote() {
     if (quoteInputElement.value === quoteDisplayElement.innerHTML) {
-        score++;
+        message.innerHTML = "Nice!"
         return true;
     } else {
-        score--;
+        message.innerHTML ="";
         return false;
     }
 }
 
-// Pick & show random word
-function show(randomQuotesApi) {
-  // Generate random array index
-  const randIndex = Math.floor(Math.random() * randomQuotesApi.length);
-  // Output random word
-  quoteDisplay.innerHTML = randomQuotesApi[randIndex];
+// Pick & show random quote 
+function randomQuotes() {
+  return fetch(randomQuotesApi)
+    .then(response => response.json())
+    .then(data => data.content)
 }
+// use of Async Ref: https://www.youtube.com/watch?v=V_Kr9OSfDeU&ab_channel=WebDevSimplified
+async function nextQuote() {
+    const quote = await randomQuotes()
+    quoteDisplayElement.innerText = quote
+}
+
+nextQuote();
 
 // Countdown timer
 function countdown() {
-    // Make sure the time has not run out
-    if(time>0){
-        // Decrement
+    if(time > 0){
         time--;
     } else if(time === 0){
+        isPlaying = false;  
         //Game Over
-        isPlaying = false;
+        message.innerHTML = "Game Over!";
     }
     //Show time
     timeDisplay.innerHTML = time;
 }
-
-// Check game status
-function checkStatus() {
-    if(!isPlaying && time === 0){
-        message.innerHTML = "Game Over!";
-        score = -1;
-    }
-}
-
-// Compare each character typed to the quote displayed
-quoteInputElement.addEventListener("input", () => {
-    const arrayQuote = quoteDisplayElement.querySelectorAll("span");
-    const arrayValue = quoteInputElement.value.split("");
-
-    let correct = true;
-
-    arrayQuote.forEach((characterSpan, index) => {
-        const character = arrayValue[index];
-        if (character == null){
-            characterSpan.classList.remove("correct");
-            characterSpan.classList.remove("incorrect");
-            correct = false;
-        } else if (character === characterSpan.innerText) {
-            characterSpan.classList.add("correct");
-            characterSpan.classList.remove("incorrect");
-        } else {
-            characterSpan.classList.remove("correct");
-            characterSpan.classList.add("incorrect");
-            correct = false;
-        }
-    });
-
-    if (correct) getNextQuote();
-});
-
-function getRandomQuote() {
-    return fetch(randomQuotesApi)
-    .then(response => response.json())
-    .then(data => data.content);
-}
-
-// Create a loop in order to make each letter green or red
-async function getNextQuote() {
-    const quote = await getRandomQuote();
-    quoteDisplayElement.innerHTML = "";
-    quote.split("").forEach(character => {
-        const characterSpan = document.createElement("span");
-        
-        characterSpan.innerText = character;
-        quoteDisplayElement.appendChild(characterSpan);
-    });
-    quoteInputElement.value = null;
-}
-
-getNextQuote();
-

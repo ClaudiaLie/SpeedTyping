@@ -26,3 +26,8 @@ section {
 .incorrect {
     color: red;
 }
+
+p {
+    position: relative;
+    width:100%;
+}
