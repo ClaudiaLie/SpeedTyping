@@ -90,6 +90,7 @@ function startMatch() {
 
 function matchQuote() {
     if (quoteInputElement.value === quoteDisplayElement.innerHTML) {
+        message.innerHTML = "Correct!";
         nextQuote();
         return true;
     } else {
