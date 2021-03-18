@@ -3,7 +3,7 @@
 # Overview
 This project is the submission of the second Milestone Project for Code Institute Full Stack Development course.
 
-The project focuses on the use of JavaScript as main resource to create and Interactive Front-End website.
+The project focuses on the use of JavaScript as main resource to create an Interactive Front-End website.
 The website has to respond to the users' actions, allowing users to actively engage with data.
 To reach the project requirements I have decided to create a speed-typing videogame with a simple but eye-catching style and intuitive navigation for the user.
 
@@ -17,6 +17,7 @@ To reach the project requirements I have decided to create a speed-typing videog
 * [Strategy](#strategy)
     * [Goal of the Business](#goalbusiness)
     * [Goal of the User](#goaluser)
+* [Game Logic](#gamelogic)
 * [Testing](#testing)
     * [Testing Details](#testingdetails)
     * [Bugs](#bugs)
@@ -52,8 +53,7 @@ To reach the project requirements I have decided to create a speed-typing videog
 
  ## Wireframes <a name="wireframes"></a>
  The initial hand sketched wireframes show a multi-section webpage idea, with a page dedicated to learning how to type faster:
- <img src="https://imgur.com/0H3eulB.jpg" width="600px" style="margin: 15px;">
- <img src="https://i.imgur.com/pZS5EIB.jpg?1" width="600px" height="800px" style="margin: 15px;">
+ <img src="https://i.imgur.com/pZS5EIB.jpg?1" width="600px" style="margin: 15px;">
 
  In order to create a game-focused webpage, the "About" section has been deleted:
  <img src="https://i.imgur.com/dAY0VsZ.jpg" width="600px" style="margin: 15px;">
@@ -62,14 +62,27 @@ To reach the project requirements I have decided to create a speed-typing videog
 
  <img src="https://i.imgur.com/SlcvcTl.jpg" width="600px" style="margin: 15px;">
 
- 
-
  # Strategy <a name="strategy"></a>
  
  ## Goal of the Business <a name="goalbusiness"></a>
-
+ * Create a fun and engaging game;
+ * Create an intuitive website, user centered;
+ * Create a responsive website so the user is able to play from any device. 
 
  ## User Stories/ Goal of the User <a name="goaluser"></a>
+ * As user, I want to have fun and enjoy the game.
+ * As user, I want to test my typing ability.
+ * As user, I want to improve my typing ability.
+
+# Game Logic <a name="gamelogic"></a>
+<b>For pc users</b> it's important to build a game logic that makes the user not to touch the mouse or any other device but the keyboard.
+That is the reason why the only engaging activity with the mouse is the refresh button, in case it's needed to start the game again.
+
+<b>For mobile users</b> it is important instead, to create a game that is visible on the screen while typing.
+<img src="https://i.imgur.com/UfjrNJ8.jpg" width="600px" style="margin: 15px;">
+
+The website is indeed playable even when the keyboard is showing on the screen.
+
 
 
 # Testing <a name="testing"></a>
@@ -82,6 +95,7 @@ To see how the website performs on different devices:
 To check the vadility of the website's code:
 * [W3C HTML Validator](https://validator.w3.org/)
 * [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+* [JSlint](http://jslint.com/)
 
 To audit the quality of the webpage:
 * [Lighthouse](https://developers.google.com/web/tools/lighthouse/?utm_source=devtools)
@@ -90,6 +104,7 @@ To audit the quality of the webpage:
 
 
 ## User Stories Testing <a name="storiestesting"></a>
+I had the chance to test the game with some students.
  
 ## Images <a name="images"></a>
 
