@@ -59,7 +59,7 @@ const scoreDisplay = document.querySelector("#score");
 const timeDisplay = document.querySelector("#time");
 const message = document.querySelector("#message");
 
-let time = 20;
+let time = 30;
 let score = 0;
 let isPlaying;
 
@@ -68,9 +68,7 @@ function init() {
     // Load quote
     randomQuotes(randomQuotesApi);
     // Start Match at keydown
-    quoteInputElement.addEventListener("keydown", startMatch);{
-        event.preventDefault();
-    };
+    quoteInputElement.addEventListener("keydown", startMatch);
     // Call countdown every second
     setInterval(countdown, 1000);
     // Focus on Input box
@@ -78,11 +76,11 @@ function init() {
 
 } 
 
-// Start match
+// When quotes match
 function startMatch() {
     if (matchQuote()) {
         isPlaying = true;
-        time = 21;
+        time = 31;
         randomQuotes(randomQuotesApi);
         quoteInputElement.value = "";
         score++;
@@ -92,17 +90,17 @@ function startMatch() {
 
 function matchQuote() {
     if (quoteInputElement.value === quoteDisplayElement.innerHTML) {
-        message.innerHTML = "Nice!"
+        nextQuote()
         return true;
     } else {
-        message.innerHTML ="";
+        message.innerHTML = "";
         return false;
     }
 }
 
-// Pick & show random quote 
+// Pick & show random quote, fetch data from API Ref: https://github.com/WebDevSimplified/JS-Speed-Typing-Game
 function randomQuotes() {
-  return fetch(randomQuotesApi)
+  return fetch("https://api.quotable.io/random")
     .then(response => response.json())
     .then(data => data.content)
 }
@@ -111,7 +109,6 @@ async function nextQuote() {
     const quote = await randomQuotes()
     quoteDisplayElement.innerText = quote
 }
-
 nextQuote();
 
 // Countdown timer
