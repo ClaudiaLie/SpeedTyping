@@ -1,6 +1,11 @@
 ![alt text](https://i.imgur.com/6Pc3h16.jpg)
 
 # Overview
+This project is the submission of the second Milestone Project for Code Institute Full Stack Development course.
+
+The project focuses on the use of JavaScript as main resource to create and Interactive Front-End website.
+The website has to respond to the users' actions, allowing users to actively engage with data.
+To reach the project requirements I have decided to create a speed-typing videogame with a simple but eye-catching style and intuitive navigation for the user.
 
 
 # Table of Content
@@ -29,12 +34,34 @@
 
 
  ## Features <a name="features"></a>
-
+ * Navbar with a "Refresh game" icon and a direct link to the Repository of the project on GitHub;
+ * Instructions to the game;
+ * Score and Time section;
+ * A selection of quotes taken from an external API;
+ * A header with a JavaScript animation.
  
  ## Colors <a name="colors"></a>
+ The color scheme wants to resemble a Dark Screen Mode, to be more likeable for the user.
 
+ <img src="https://i.imgur.com/5dEpSJR.jpg" width="600px" style="margin: 15px;">
+
+  * #FFFFFF - Font color for the instructions' box, time & score box and header animation;
+  * #808080 - Background color for the instructions' box, time & score box and navbar icons;
+  * #000000 - Header and footer background, font color for the displayed quotes;
+  * #9A98B4 - Main section background.
 
  ## Wireframes <a name="wireframes"></a>
+ The initial hand sketched wireframes show a multi-section webpage idea, with a page dedicated to learning how to type faster:
+ <img src="https://imgur.com/0H3eulB.jpg" width="600px" style="margin: 15px;">
+ <img src="https://i.imgur.com/pZS5EIB.jpg?1" width="600px" height="800px" style="margin: 15px;">
+
+ In order to create a game-focused webpage, the "About" section has been deleted:
+ <img src="https://i.imgur.com/dAY0VsZ.jpg" width="600px" style="margin: 15px;">
+ 
+ In favour of a responsive design for all devices:
+
+ <img src="https://i.imgur.com/SlcvcTl.jpg" width="600px" style="margin: 15px;">
+
  
 
  # Strategy <a name="strategy"></a>
