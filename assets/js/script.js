@@ -90,7 +90,7 @@ function startMatch() {
 
 function matchQuote() {
     if (quoteInputElement.value === quoteDisplayElement.innerHTML) {
-        nextQuote()
+        nextQuote();
         return true;
     } else {
         message.innerHTML = "";
@@ -102,12 +102,12 @@ function matchQuote() {
 function randomQuotes() {
   return fetch("https://api.quotable.io/random")
     .then(response => response.json())
-    .then(data => data.content)
+    .then(data => data.content);
 }
 // use of Async Ref: https://www.youtube.com/watch?v=V_Kr9OSfDeU&ab_channel=WebDevSimplified
 async function nextQuote() {
-    const quote = await randomQuotes()
-    quoteDisplayElement.innerText = quote
+    const quote = await randomQuotes();
+    quoteDisplayElement.innerText = quote;
 }
 nextQuote();
 

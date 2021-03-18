@@ -1,4 +1,4 @@
-![alt text](https://i.imgur.com/s26SrsM.jpg?1)
+![alt text](https://i.imgur.com/6Pc3h16.jpg)
 
 # Overview
 
