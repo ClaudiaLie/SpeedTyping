@@ -55,6 +55,7 @@ To reach the project requirements I have decided to create a speed-typing video 
 
  ## Wireframes <a name="wireframes"></a>
  The initial hand sketched wireframes show a multi-section webpage idea, with a page dedicated to learning how to type faster:
+ 
  <img src="https://i.imgur.com/pZS5EIB.jpg?1" width="600px" style="margin: 15px;">
 
  In order to create a game-focused webpage, the "About" section has been deleted:
