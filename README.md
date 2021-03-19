@@ -23,7 +23,6 @@ To reach the project requirements I have decided to create a speed-typing video 
     * [Bugs](#bugs)
     * [User Stories Testing](#storiestesting)
 * [Credits](#credits)
-    * [Images](#images)
     * [External Credits](#externalcredits)
     * [Deployment](#deployment)
     * [Acknowledgements](#acknowledgements)
@@ -113,8 +112,9 @@ I have used the following websites to test the project:
 * The starting idea of the project had an "About" section that had links to some typing learning guides:
 <img src="https://i.imgur.com/1Z7SDI1.jpg?1" width="600px" style="margin: 15px;">
 
-    I felt that I was missing the focus on what was the project about, and I have deleted the learning section from the original idea, in favour of a game-focused webpage.
-* I had in mind to create an if else function to convert green the correct words typed, unfortunately the lack of time didn't make possible for me to work on it before submission date.
+I felt that I was missing the focus on what was the project about, and I have deleted the learning section from the original idea, in favour of a game-focused webpage.
+* I had in mind to create an if else function to convert green the correct characters typed, I couldn't figure why the tutorial from [Web Dev Simplified](https://youtu.be/R-7eQIHRszQ) wasn't working for me, and unfortunately, because of the lack of time, I didn't menage to figure it out before submission date.
+However, I was able to work successfully on a generic visual color confirmation, thanks to [Stack Overflow](https://stackoverflow.com/questions/25713190/change-div-colour-with-js-if-else-conditiond);
 * In order to avoid any "cheats" or shortcuts to score, the game container rejects copy/paste actions, drag/drop or selecting the text of the quote. 
 
 
@@ -131,6 +131,7 @@ I have used the following websites to test the project:
 * The typewriter effect animation on the header has been created following the tutorial of [Ania Kubów](https://github.com/kubowania) on her [Youtube Channel](https://youtu.be/mULM6KcF_mo?t=3); 
 * The API code and the use of it has been written with the support of the tutorial of [Web Dev Simplified](https://github.com/WebDevSimplified) on his [Youtube Channel](https://youtu.be/R-7eQIHRszQ);
 * The general structure of the webpage is inspired by [Traversy Media](https://github.com/bradtraversy) ([Youtube Channel](https://youtu.be/Yw-SYSG-028?t=22)).
+* As mentioned above in the "Bugs" section, I was able to figure a color validation if the user has completed correctly the quote, thanks to [Stack Overflow](https://stackoverflow.com/questions/25713190/change-div-colour-with-js-if-else-conditiond);
 * The main inspiration of this game is the typing test [Monkeytype](https://monkeytype.com/), a website with a simple design, extremely intuitive and easy to use.
 
 ## Acknowledgements <a name="acknowledgements"></a>

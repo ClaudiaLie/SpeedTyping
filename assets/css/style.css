@@ -19,14 +19,6 @@ section {
     border-color: black;
 }
 
-.correct {
-    color: green;
-}
-
-.incorrect {
-    color: red;
-}
-
 p {
     position: relative;
     width:100%;

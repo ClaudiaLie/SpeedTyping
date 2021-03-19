@@ -69,10 +69,8 @@ function init() {
     setInterval(countdown, 1000);
     // Focus on Input box
     quoteInputElement.focus();
-
 }
 
-// When quotes match
 function startMatch() {
     if (matchQuote()) {
         isPlaying = true;
@@ -84,17 +82,19 @@ function startMatch() {
         scoreDisplay.innerHTML = score;
     }
 
+// When quotes match turn the box green
 function matchQuote() {
     if (quoteInputElement.value === quoteDisplayElement.innerHTML) {
+        document.getElementById("quoteInput").style.backgroundColor = '#99C262';
         message.innerHTML = "Correct!";
         nextQuote();
         return true;
     } else {
-        message.innerHTML = "";
+        message.innerHTML = "Don't forget to press Return!";
+        document.getElementById("quoteInput").style.backgroundColor = '#FF6C60';
         return false;
     }
 }
-
 // Pick & show random quote, fetch data from API Ref: https://github.com/WebDevSimplified/JS-Speed-Typing-Game
 function randomQuotes() {
   return fetch("https://api.quotable.io/random")
