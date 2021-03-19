@@ -13,24 +13,20 @@ function loop() {
     textDisplay.innerHTML = currentPhrase.join("");
 
     if (i < phrases.length) {
-
         if (!isDeleting && j <= phrases[i].length) {
-            currentPhrase.push(phrases[i][j]);            
+            currentPhrase.push(phrases[i][j]);
             j++;
             textDisplay.innerHTML = currentPhrase.join("");
-        }  
-
+        }
         if (isDeleting && j <= phrases[i].length) {
             currentPhrase.pop(phrases[i][j]);
             j--;
             textDisplay.innerHTML = currentPhrase.join("");
         }
-
         if (j == phrases[i].length) {
             isEnd = true;
             isDeleting = true;
         }
-
         if (isDeleting && j === 0) {
             currentPhrase = [];
             isDeleting = false;
@@ -67,14 +63,14 @@ let isPlaying;
 function init() {
     // Load quote
     randomQuotes(randomQuotesApi);
-    // Start Match at keydown
+    // Start Match
     quoteInputElement.addEventListener("keydown", startMatch);
     // Call countdown every second
     setInterval(countdown, 1000);
     // Focus on Input box
     quoteInputElement.focus();
 
-} 
+}
 
 // When quotes match
 function startMatch() {
@@ -117,7 +113,7 @@ function countdown() {
     if(time > 0){
         time--;
     } else if(time === 0){
-        isPlaying = false;  
+        isPlaying = false;
         //Game Over
         message.innerHTML = "Game Over!";
     }
